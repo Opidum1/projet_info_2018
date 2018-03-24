@@ -1,5 +1,9 @@
 inventaire --> objets
 
+menue --> options 
+
+difficulté ? 
+
 Compétences ? 
 
 différentes armes ? ou une seul ? 
