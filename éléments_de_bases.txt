@@ -4,7 +4,9 @@ menue --> options
 
 difficulté ? 
 
-Compétences ? 
+Compétences ? ( niveau de compétences ? )
+
+niveau de personnage --> xp ? 
 
 différentes armes ? ou une seul ? 
 
