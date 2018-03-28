@@ -1,20 +1,40 @@
 inventaire --> objets
- fd dsf 
+
+-- oui
+
+
 menue --> options 
+
+
+-- oui -save/loading/pause
 
 difficulté ? 
 
+-- oui
+
 Compétences ? ( niveau de compétences ? )
+
+-- oui
 
 niveau de personnage --> xp ? 
 
+-- oui
+
 différentes armes ? ou une seul ? 
+
+-- une seul
 
 Forme du dongeon ? 
 
+-- fenêtrage
+
 buffs/amélioration ? 
+
+oui 
 
 graphisme ? 
 
-Son ? 
+Son ?
+
+- à voir  
 
