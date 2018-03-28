@@ -1,5 +1,5 @@
 inventaire --> objets
-
+ fd dsf 
 menue --> options 
 
 difficulté ? 
