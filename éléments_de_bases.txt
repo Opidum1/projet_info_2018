@@ -1,10 +1,19 @@
+Personnage ?
+
+--Point de vie max
+--Peut augmenter avec objets
+
 inventaire --> objets
 
 -- oui
 
+-- potions
+-- différentes armes
+-- sac --> augmenter inventaire
+-- si inventaire plein --> échange
+-- Potions
 
 menue --> options 
-
 
 -- oui -save/loading/pause
 
@@ -18,23 +27,41 @@ Compétences ? ( niveau de compétences ? )
 
 niveau de personnage --> xp ? 
 
--- oui
+-- oui --> finalité devenir mage
 
 différentes armes ? ou une seul ? 
 
--- une seul
+-- plusieurs
+
+-- bloc spécieaux échange d'armes
 
 Forme du dongeon ? 
 
--- fenêtrage
+-- fenêtrage --> différentes zones
 
 buffs/amélioration ? 
 
-oui 
+--oui --> mettre une classe amélioration 
+
+allié ? 
+
+--> apporter amélioration
+
+Ennemie ?
+
+-- différents types d'ennemies
 
 graphisme ? 
 
 Son ?
 
+
+RECOMPENSE POUR ACTION SPECIALE
+
 - à voir  
+
+
+
+
+
 
