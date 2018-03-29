@@ -3,7 +3,7 @@ Personnage ?
 --Point de vie max
 --Peut augmenter avec objets
 
-inventaire --> objets
+inventaire" attribut du player"  --> objets " sous classe de GameObject"
 
 -- oui
 
@@ -13,41 +13,41 @@ inventaire --> objets
 -- si inventaire plein --> échange
 -- Potions
 
-menue --> options 
+menue --> options " mis dans game" 
 
 -- oui -save/loading/pause
 
-difficulté ? 
+difficulté ? " game "
 
 -- oui
 
-Compétences ? ( niveau de compétences ? )
+Compétences ? ( niveau de compétences ? ) " player"
 
 -- oui
 
-niveau de personnage --> xp ? 
+niveau de personnage --> xp ? "player"
 
 -- oui --> finalité devenir mage
 
-différentes armes ? ou une seul ? 
+différentes armes ? ou une seul ? " objet"
 
 -- plusieurs
 
 -- bloc spécieaux échange d'armes
 
-Forme du dongeon ? 
+Forme du dongeon ? " à voir dans map et window"
 
 -- fenêtrage --> différentes zones
 
-buffs/amélioration ? 
+buffs/amélioration ? " classe amélioration"
 
 --oui --> mettre une classe amélioration 
 
-allié ? 
+allié ? "pnj sous classe de game Object"
 
 --> apporter amélioration
 
-Ennemie ?
+Ennemie ?"pnj sous classe de game object"
 
 -- différents types d'ennemies
 
