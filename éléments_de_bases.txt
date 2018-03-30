@@ -1,7 +1,7 @@
 Personnage ?
 
 --(Point de vie max)
---Peut augmenter avec objets
+--(Peut augmenter avec objets)
 
 inventaire" attribut du player"  --> objets (" sous classe de GameObject")
 
