@@ -1,9 +1,9 @@
 Personnage ?
 
---Point de vie max
+--(Point de vie max)
 --Peut augmenter avec objets
 
-inventaire" attribut du player"  --> objets " sous classe de GameObject"
+inventaire" attribut du player"  --> objets (" sous classe de GameObject")
 
 -- oui
 
@@ -25,7 +25,7 @@ Compétences ? ( niveau de compétences ? ) " player"
 
 -- oui
 
-niveau de personnage --> xp ? "player"
+niveau de personnage --> xp ? ("player")
 
 -- oui --> finalité devenir mage
 
@@ -39,15 +39,15 @@ Forme du dongeon ? " à voir dans map et window"
 
 -- fenêtrage --> différentes zones
 
-buffs/amélioration ? " classe amélioration"
+buffs/amélioration ? (" classe amélioration")
 
 --oui --> mettre une classe amélioration 
 
-allié ? "pnj sous classe de game Object"
+allié ? ("pnj sous classe de game Object")
 
 --> apporter amélioration
 
-Ennemie ?"pnj sous classe de game object"
+Ennemie ?("pnj sous classe de game object")
 
 -- différents types d'ennemies
 
