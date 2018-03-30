@@ -7,11 +7,11 @@ inventaire" attribut du player"  --> objets (" sous classe de GameObject")
 
 -- oui
 
--- potions
+
 -- différentes armes
--- sac --> augmenter inventaire
+-- (sac) --> (augmenter inventaire)
 -- si inventaire plein --> échange
--- Potions
+-- (Potions de vie)
 
 menue --> options " mis dans game" 
 
