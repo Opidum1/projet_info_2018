@@ -2,14 +2,11 @@ package Model;
 
 import View.Window;
 
+
 import java.util.ArrayList;
 import java.util.Random;
 
-import javax.swing.text.html.HTMLDocument.HTMLReader.IsindexAction;
-
-import org.omg.CosNaming.IstringHelper;
-
-public class Game implements DeletableObserver {
+public class Game implements DeletableObserver{
     private ArrayList<GameObject> objects = new ArrayList<GameObject>();
 
     private Window window;
@@ -23,6 +20,10 @@ public class Game implements DeletableObserver {
         // Creating one Player at position (1,1)
         objects.add(new Player(10, 10, 3, 5));   // crée un jouer en (10,10), avec 3 bombe et 5hp
 
+        
+        // Creating one Ennemi
+        objects.add(new Pnj(11,11,5));
+       
         // Map building
         for (int i = 0; i < size; i++) {
             objects.add(new BlockUnbreakable(i, 0));
@@ -66,6 +67,47 @@ public class Game implements DeletableObserver {
         notifyView();
     }
 
+    
+    /////////////////////
+    //Code test ajouté///
+    /////////////////////
+   
+    public void moveEnnemi() throws InterruptedException {
+    	Pnj ennemi = ((Pnj) objects.get(1));
+    	Random rand = new Random();
+    	Thread thread = new Thread();
+    	thread.start();	
+    	while(true) {
+    	try {
+    	Thread.sleep(500);	
+    	int rand_x = rand.nextInt(3) -1;
+    	int rand_y = rand.nextInt(3) -1;
+
+    	int next_X = ennemi.getPosX() + rand_x;
+    	int next_Y = ennemi.getPosY() + rand_y;
+    	
+    	boolean obstacle = false;
+    	for(GameObject object : objects) {
+    		if (object.isAtPosition(next_X, next_Y)) {
+    			obstacle = object.isObstacle();
+    		}
+    		if (obstacle == true) {
+    			break;
+    		}
+    	}
+    	ennemi.rotate(rand_x,rand_y);
+    	if (obstacle == false) {
+    		ennemi.move(rand_x,rand_y);
+    	}
+    	notifyView();
+    	
+    	} catch(InterruptedException e) {
+    	}
+    }
+    }
+    
+    
+    
     public void action(int playerNumber) {
         Player player = ((Player) objects.get(playerNumber));
         Activable aimedObject = null;
