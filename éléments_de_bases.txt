@@ -31,6 +31,8 @@ niveau de personnage --> xp ? ("player")
 
 différentes armes ? ou une seul ? " objet"
 
+-- par défaut les armes sont au cac
+
 -- plusieurs
 
 -- bloc spécieaux échange d'armes
