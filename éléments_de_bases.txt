@@ -29,9 +29,9 @@ niveau de personnage --> xp ? ("player")
 
 -- oui --> finalité devenir mage
 
-différentes armes ? ou une seul ? " objet"
+différentes armes ? ou une seul ? (" objet")
 
--- par défaut les armes sont au cac
+-- (par défaut les armes sont au cac)
 
 -- plusieurs
 
