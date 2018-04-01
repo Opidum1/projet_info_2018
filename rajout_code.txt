@@ -1,0 +1,7 @@
+
+//////////////////////////////////////////////
+// à rajouter dans le constructeur de Window//
+//////////////////////////////////////////////
+
+frame.setresizable(false);  // empêche de resize la fenêtre
+frame.setLocationRelativeTo(null);  // fait apparaître la fenêtre au milieu du screen
