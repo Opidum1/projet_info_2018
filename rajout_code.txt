@@ -5,3 +5,23 @@
 
 frame.setresizable(false);  // empêche de resize la fenêtre
 frame.setLocationRelativeTo(null);  // fait apparaître la fenêtre au milieu du screen
+
+
+//////////////////////////////////////////
+// Comment utiliser un Thread proprement//
+// ( exemple jeu --> beginner guide     // 
+//////////////////////////////////////////
+
+public synchronized void start(){      // pour lancer le thread proprement
+	Thread thread = new Thread(this);  // le "this" permet de dire que cette classe est un thread 
+	thread.start();      // appel la méthode Run ! ! ! ! ! !
+}
+
+public synchronized void stop(){
+	try {
+		thread.join();
+	} catch (InterruptedException e) {
+		e.printStackTrace();
+	}
+}
+
