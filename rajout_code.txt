@@ -29,3 +29,50 @@ public synchronized void stop(){
 // Utiliser des buffers pour l'affichage//
 //////////////////////////////////////////
 
+
+il va falloir rajouter des sprite sheets, avec toutes les images du jeu et les crop 
+
+//////////////////////////
+// Les différents menues// 
+//////////////////////////
+
+Chaque menue (principale/options/jeu) devra être dans sa propre classe
+
+Ajout d'une abstract classe "état" avec cequi est en commun avec les différents états
+--update
+--notifyView
+
+public abstract classe Etat {
+	
+	public abstract void update();
+	
+	public abstract void notifyView(Graphics g);
+	
+}
+
+public classe Etat_du_jeu extends Etat {
+	
+	private static Etat Etat_actuel = null;
+	
+	public static void setEtat(Etat etat) {    // Change l'etat du jeu
+		Etat_actuel = etat;
+	}
+	
+	public static Etat getEtat(){
+		return Etat_actuel;
+	}
+	
+	// classe
+	public Etat_du_jeu() {
+		
+	}
+	
+	@Override
+	public void update() { 
+	
+	}
+	
+	@Override
+	public void notifyView(Graphics g) {
+		
+	}
