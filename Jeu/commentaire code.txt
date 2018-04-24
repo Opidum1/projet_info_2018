@@ -1,0 +1,21 @@
+///////////////
+//L'affichage//
+///////////////
+
+l'affichage est séparé en plusieurs parties :
+
+--tout ce qui concerne l'affichage de la fenêtre est géré dans la classe "Affichage"
+
+--tout ce qui concerne l'affichage du décor est géré dans la classe "World",
+  les objets du décor sont des " tile " et ce qui concerne les tile se trouve dans la class "Tile"
+  
+--tout ce qui concerne l'affichage des objets avec lesquelles on peut interagir se trouve dans la class
+  "StaticEntity"
+  
+--tout ce qui concerne les créatures est géré dans dans leurs class respectives qui sont des sous-class
+   de la class "Creatures", il y a une class "EnityManager" qui gère le tout avec une Arraylist de 
+   gameObject
+   
+--toutes les images sont de la class "Asset", elle sont toutes dans une seul spritSheet, et son découpées 
+  à l'aide d'une fonction
+  
