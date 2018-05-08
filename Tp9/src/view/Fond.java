@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
@@ -15,6 +16,8 @@ public class Fond {
 	// NOMBRE D'ELEMENTS DANS LA MAP
 	
 	private int largeur, hauteur;  
+	
+	// TAILLE DE LA MAP EN PIXELLES
 	
 	
 	private int spawnX, spawnY;
@@ -35,7 +38,8 @@ public class Fond {
 		
 		for(int y = 0; y < hauteur; y++) {
 			for(int x = 0; x < largeur; x++) {
-				g.drawImage(Sheets.element_Fond[terrain[x][y]],x*largeur_fond,y*hauteur_fond,largeur_fond,hauteur_fond,null);
+				g.drawImage(Sheets.element_Fond[terrain[x][y]],(int)(x*largeur_fond - game.getCamera().getDecalage_x()),(int)(y*hauteur_fond - game.getCamera().getDecalage_y()),largeur_fond,hauteur_fond,null);
+
 			}
 		}
 		}
@@ -62,27 +66,46 @@ public class Fond {
 
 
 	public BufferedImage getCarreau(int x, int y) {
-		BufferedImage s = Sheets.element_Fond[terrain[x][y]];
+		BufferedImage s = Sheets.element_Fond[terrain[x/64][y/64]];
 		if(s == null)
 			return Sheets.getHerbe();
 		return s;
 		
 	}
 
-	
-	
-	public  Rectangle getCollisionRec(int x, int y) {
-		return new Rectangle(x/64,y/64,64,64);
-	}
+
+		
+
 	
 	// GET/SET
 
+	
+	
+	
+	
 	public  int getLargeur_fond() {
 		return largeur_fond;
 	}
 
 
+	public int getLargeur() {
+		return largeur;
+	}
 
+
+	public void setLargeur(int largeur) {
+		this.largeur = largeur;
+	}
+
+
+	public int getHauteur() {
+		return hauteur;
+	}
+
+
+	public void setHauteur(int hauteur) {
+		this.hauteur = hauteur;
+	}
 
 
 	public  int getHauteur_fond() {
@@ -91,4 +114,6 @@ public class Fond {
 
 
 
+	
+	
 }

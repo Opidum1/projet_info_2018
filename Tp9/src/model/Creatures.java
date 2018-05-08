@@ -31,10 +31,12 @@ public abstract class Creatures {
 	
 	protected boolean isMoving = false;
 	
-
+	protected int hp;
+	
+	protected boolean vivant = true;
 	
 
-	
+	// GESTION DU DEPLACEMENT
 	
 	
 	public Creatures(Game game, float posX, float posY) {
@@ -43,7 +45,7 @@ public abstract class Creatures {
 		this.game = game;
 		xMove= 0;
 		yMove= 0;
-		
+
 		collisionRec = new Rectangle(0,0,LARGEUR_CREATURE,HAUTEUR_CREATURE);
 
 	}
@@ -118,7 +120,7 @@ public abstract class Creatures {
 
 	private boolean CollisionPnj(float decalage_x,float decalage_y) {
 		 boolean isCollision = false;
-		for(Creatures c: game.getPnjList().getPnj()) {
+		for(Creatures c: game.getInGame().getPnjList().getPnj()) {
 			if(c.equals(this))                             //Pour ne pas bloquer quand le for arrive sur l'objet même
 				continue;
 			if(this.getCollisionRec(this,decalage_x,decalage_y).intersects(c.getCollisionRec(c,decalage_x,decalage_y))) {
@@ -130,7 +132,7 @@ public abstract class Creatures {
 	
 	
 	public boolean CollisionObstacle(int x, int y) {
-		return  Sheets.isObstacle(game.getFond().getCarreau(x/64, y/64));
+		return  Sheets.isObstacle(game.getFond().getCarreau(x, y));
 	}
 	
 	// Collision avec l'environnment en cours de codage
@@ -146,8 +148,20 @@ public abstract class Creatures {
 	
 	
 	
-	// BUFF ET STATS
+	// GESTION DES DEGATS 
 	
+	public void degat(int dmg) {
+		hp -= dmg;
+		dmgAnim();
+		if(hp <= 0) {
+			vivant = false;
+		}
+	}
+	
+	
+	public abstract void mort();
+	
+	public abstract void dmgAnim();
 
 	
 	// GET/SET

@@ -15,6 +15,14 @@ public class Player extends Creatures {
 	public Window window;
 	public Game game;
 	
+	// PARTIE TIMER
+	
+	private long lastTime;
+	private long timer;
+	
+	private Rectangle porté;
+	
+	
 	
 	
 	public Player(Game game, float posX, float posY) {
@@ -24,7 +32,8 @@ public class Player extends Creatures {
 		this.posY = posY;
 		isMoving = true;
 		isPlayerMovable = true;
-		
+		lastTime = 800;
+		timer = 0;
 		
 		// GESTION DES COLLISIONS
 		
@@ -39,6 +48,19 @@ public class Player extends Creatures {
 	
 	}
 
+	
+
+	
+	
+	
+	public void mort() {
+		
+	}
+	
+	public void dmgAnim() {
+		
+	}
+	
 	public Game getGame() {
 		return game;
 	}
@@ -81,22 +103,110 @@ public class Player extends Creatures {
 	
 
 	public void update() {
-		System.out.println(isMoving);
+		//System.out.println(isMoving);
 		getInput();
 		move();
 
+		game.getCamera().centerPlayer(this);  // PERMET DE CENTRER LA CAM SUR LE PLAYER
+	
+		hit();
+		
+		
 		
 		//TEST
-		System.out.println(isPlayerMovable);
+	//	System.out.println(game.getCamera().getDecalage_x());
+	}
+	
+	// GESTION DES DEGATS 
+	
+	public void hit() {
+		timer += System.currentTimeMillis() - lastTime;   // nous donne le temps passé avant entre le dernier update et maintenant
+		lastTime = System.currentTimeMillis();
+
+
+		if(timer < 500) {
+			return;
+		}
+
+		Rectangle coliRec = getCollisionRec(this,0,0);
+		Rectangle porté = new Rectangle();
+		
+		int range = 20;
+		
+		porté.width = range;
+		porté.height = range;
+		
+		if(game.getKeyboard().isAttaque_haut()) {
+			porté.x = coliRec.x + coliRec.width / 2 - range / 2;
+			porté.y = coliRec.y - range / 2;
+			game.getG().setColor(Color.BLACK);
+			game.getG().fillRect(porté.x, porté.y, porté.width, porté.height);
+			System.out.println(porté.x);
+		}else 		if(game.getKeyboard().isAttaque_bas()) {
+			porté.x = coliRec.x + coliRec.width / 2 - range / 2;
+			porté.y = coliRec.y + coliRec.height;
+		}else 		if(game.getKeyboard().isAttaque_gauche()) {
+			porté.x = coliRec.x +  - range / 2;
+			porté.y = coliRec.y;
+		}else 		if(game.getKeyboard().isAttaque_droite()) {
+			porté.x = coliRec.x + coliRec.width;
+			porté.y = coliRec.y;
+		}else {
+			return;
+		}
+	
+		timer = 0;
+		game.getG().setColor(Color.BLACK);
+		game.getG().fillRect(porté.x, porté.y, porté.width, porté.height);
+		
+		for(Creatures c :game.getInGame().getPnjList().getPnj()) {
+			if(c.equals(this))
+				continue;
+			
+			if(c.getCollisionRec(c, 0, 0).intersects(porté)){
+				c.degat(1);
+				System.out.println(c.hp);
+				return;
+			}
+		
+		}
+		System.out.println("Attack");
+
 	}
 	
 	public void notifyView(Graphics g) {
-		g.drawImage(Sheets.getPlayer(),(int)(posX),(int)(posY),LARGEUR_CREATURE,HAUTEUR_CREATURE,null);
+		g.drawImage(Sheets.getPlayer(),(int)(posX - game.getCamera().getDecalage_x()),(int)(posY - game.getCamera().getDecalage_y()),LARGEUR_CREATURE,HAUTEUR_CREATURE,null);
 		
-		//TEST
+		Rectangle coliRec = getCollisionRec(this,0,0);
+		Rectangle porté = new Rectangle();
 		
-		g.setColor(Color.BLUE);
-		g.fillRect(collisionRec.x + (int)(posX), collisionRec.y + (int)(posY), collisionRec.width, collisionRec.height);
-	}
+		int range = 20;
+		
+		porté.width = range;
+		porté.height = range;
+		
+		if(game.getKeyboard().isAttaque_haut()) {
+			porté.x = coliRec.x + coliRec.width / 2 - range / 2;
+			porté.y = coliRec.y - range / 2;
+			g.setColor(Color.BLACK);
+			g.fillRect((int)(porté.x - game.getCamera().getDecalage_x()),(int) (porté.y - game.getCamera().getDecalage_y()), porté.width, porté.height);
+		}else 		if(game.getKeyboard().isAttaque_bas()) {
+			porté.x = coliRec.x + coliRec.width / 2 - range / 2;
+			porté.y = coliRec.y + coliRec.height;
+			g.fillRect((int)(porté.x - game.getCamera().getDecalage_x()),(int) (porté.y - game.getCamera().getDecalage_y()), porté.width, porté.height);
 
-}
+		}else 		if(game.getKeyboard().isAttaque_gauche()) {
+			porté.x = coliRec.x +  - range / 2;
+			porté.y = coliRec.y;
+			g.fillRect((int)(porté.x - game.getCamera().getDecalage_x()),(int) (porté.y - game.getCamera().getDecalage_y()), porté.width, porté.height);
+
+		}else 		if(game.getKeyboard().isAttaque_droite()) {
+			porté.x = coliRec.x + coliRec.width;
+			porté.y = coliRec.y;
+			g.fillRect((int)(porté.x - game.getCamera().getDecalage_x()),(int) (porté.y - game.getCamera().getDecalage_y()), porté.width, porté.height);
+
+		}else {
+			return;
+		}
+
+}}

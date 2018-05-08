@@ -4,10 +4,12 @@ Dernière élément codé :
 	
 	- collison avec l'environnement
 	
+	- GameCamera
+
 
 élément en cours de codage :
 
-	- GameCamera
+	- ordre d'affichage des différents éléments 
 	
 	- génération propre de la map
 	
