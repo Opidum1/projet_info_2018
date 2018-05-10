@@ -28,7 +28,7 @@ public class Game implements Runnable {
 	private Graphics g;
 	private BufferStrategy bs;
 	private Fond fond;
-	private GestionCreatures pnjList;
+	//private GestionCreatures pnjList;
 
 	private Camera camera;
 	
@@ -190,13 +190,9 @@ public class Game implements Runnable {
 
 
 	public GestionCreatures getPnjList() {
-		return pnjList;
+		return inGame.getPnjList();
 	}
 
-
-	public void setPnjList(GestionCreatures pnjList) {
-		this.pnjList = pnjList;
-	}
 
 	public Keyboard getKeyboard() {
 		return keyboard;

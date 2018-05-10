@@ -25,7 +25,7 @@ public class GestionCreatures {
 		return pnj;
 	}
 
-
+	
 	public void setPnj(ArrayList<Creatures> pnj) {
 		this.pnj = pnj;
 	}

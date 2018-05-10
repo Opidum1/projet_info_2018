@@ -10,11 +10,13 @@ public class Etat_jeu extends Etat {
 	private Fond fond;
 	private Player player;
 	private GestionCreatures pnjList;
+	private GestionObjets items_list;
 
 	public Etat_jeu(Game game) {
 		super(game);
 		player = new Player(game,250,250);
 		pnjList = new GestionCreatures(player);
+		items_list = new GestionObjets(player);
 		fond = new Fond(game,"ressources_ext/monde/monde.txt");
 	}
 
@@ -24,6 +26,8 @@ public class Etat_jeu extends Etat {
 	@Override
 	public void notifyView(Graphics g) {
 		fond.notifyView(g);
+		
+		items_list.notifyView(g);
 		pnjList.notifyView(g);
 	}
 
@@ -31,7 +35,21 @@ public class Etat_jeu extends Etat {
 	@Override
 	public void update() {
 		pnjList.update();
-		
+		items_list.update();
+	}
+
+
+
+
+	public GestionObjets getItems_list() {
+		return items_list;
+	}
+
+
+
+
+	public void setItems_list(GestionObjets items_list) {
+		this.items_list = items_list;
 	}
 
 

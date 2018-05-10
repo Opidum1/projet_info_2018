@@ -6,10 +6,19 @@ Dernière élément codé :
 	
 	- GameCamera
 
+	- Objets
+	
+	- Objets drop
 
 élément en cours de codage :
 
 	- ordre d'affichage des différents éléments 
+
+	- Inventaires(list + view)
+
 	
+
+REMARQUES : 
+
+	- trouvé un moyen d'afficher l'arme plus longtemps
 	- génération propre de la map
-	

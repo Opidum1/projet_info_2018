@@ -29,4 +29,9 @@ public abstract class Etat {
 		return null;
 	}
 
+	public GestionObjets getItems_list() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

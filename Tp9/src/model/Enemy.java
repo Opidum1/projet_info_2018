@@ -9,6 +9,7 @@ import java.awt.Rectangle;
 
 public class Enemy extends Creatures {
 	
+	private bois bois;
 	
 	public Game game;
 	
@@ -32,8 +33,7 @@ public class Enemy extends Creatures {
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -53,7 +53,9 @@ public class Enemy extends Creatures {
 
 	@Override
 	public void mort() {
-		// TODO Auto-generated method stub
+		bois = new bois(game,(collisionRec.x),(collisionRec.y));
+
+		game.getInGame().getItems_list().addObjet(bois);
 		
 	}
 
@@ -65,6 +67,16 @@ public class Enemy extends Creatures {
 	public void dmgAnim() {
 		// TODO Auto-generated method stub
 		
+	}
+
+
+
+
+
+	@Override
+	public Rectangle getCollisionRec(Objets c) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

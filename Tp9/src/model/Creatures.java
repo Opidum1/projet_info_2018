@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 import view.Fond;
 import view.Sheets;
 
-public abstract class Creatures {
+public abstract class Creatures implements GameObject {
 	
 	
 	
@@ -154,6 +154,7 @@ public abstract class Creatures {
 		hp -= dmg;
 		dmgAnim();
 		if(hp <= 0) {
+			mort();
 			vivant = false;
 		}
 	}
