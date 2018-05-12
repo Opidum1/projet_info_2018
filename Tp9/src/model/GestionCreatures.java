@@ -23,12 +23,11 @@ public class GestionCreatures {
 		red4 = new Enemy(player.getGame(), 40f,800f,count*5,count*10*1000);
 		red5 = new Enemy(player.getGame(), 800f,800f,count*5,count*10*1000);
 		
-		
-//		pnj.add(red1);
-//		pnj.add(red2);		
-//		pnj.add(red3);
-//		pnj.add(red4);
-//		pnj.add(red5);		
+		pnj.add(red1);		
+		pnj.add(red2);				
+		pnj.add(red3);
+		pnj.add(red4);
+		pnj.add(red5);		
 		
 
 		//pnj.add(red2);
@@ -83,7 +82,7 @@ public class GestionCreatures {
 	
 	public void update() {
 		if(deadMobs == 5) {
-			//spawn();
+			spawn();
 		}
 
 		for(int i =0; i < pnj.size();i++) {
