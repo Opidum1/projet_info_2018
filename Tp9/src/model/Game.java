@@ -46,7 +46,7 @@ public class Game implements Runnable {
 		
 		window = new Window("jeu", largeur, hauteur);
 		window.getFrame().addKeyListener(keyboard);
-
+		Sheets.Init();
 		camera = new Camera(this,0f,0f);
 		
 
@@ -56,7 +56,7 @@ public class Game implements Runnable {
 		test = new Etat_test(this);
 		state = inGame;
 			
-		Sheets.Init();
+		
 		
 		thread.start();
 	}
@@ -72,7 +72,7 @@ public class Game implements Runnable {
 		}
 		g = bs.getDrawGraphics();     // Graphics c'est comme un pinceau, permet de dessiner sur le canva
 		//Clear Screen			
-		g.clearRect(0, 0, 400, 400);
+		g.clearRect(0, 0, largeur, hauteur);
 		// début  Dessin
 			
 		//fond.notifyView(g);
@@ -82,6 +82,7 @@ public class Game implements Runnable {
 		bs.show();
 		g.dispose();
 		window.draw();
+		g.drawString(String.valueOf(inGame.getPnjList().count), (int)(50 - camera.getDecalage_x()),(int) (50 - camera.getDecalage_y()));
 	}
 
 

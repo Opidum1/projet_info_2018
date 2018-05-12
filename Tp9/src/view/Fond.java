@@ -13,6 +13,7 @@ public class Fond {
 	
 	private static int largeur_fond = 64, hauteur_fond = 64;
 	
+
 	// NOMBRE D'ELEMENTS DANS LA MAP
 	
 	private int largeur, hauteur;  

@@ -7,7 +7,14 @@ import model.Game;
 
 public class Keyboard implements KeyListener {
 	
+	// INVENTAIRE
 	
+	private boolean inventaire;
+	private boolean inventaire1;
+	private boolean inventaire2;
+	private boolean inventaire3;
+	
+	private boolean utiliser;
 	//DEPLACEMENT
 	
 	private boolean haut,bas,gauche,droite,isPressed;
@@ -29,6 +36,15 @@ public class Keyboard implements KeyListener {
 		gauche = touche [KeyEvent.VK_Q];
 		droite = touche [KeyEvent.VK_D];
 		
+		//INVENTAIRE
+		
+		inventaire = touche [KeyEvent.VK_I];
+		
+		inventaire1 = touche [KeyEvent.VK_1];
+		inventaire2 = touche [KeyEvent.VK_2];
+		inventaire3 =  touche [KeyEvent.VK_3];
+		
+		utiliser = touche [KeyEvent.VK_ENTER];
 		
 		space = touche [KeyEvent.VK_SPACE];
 		
@@ -42,6 +58,56 @@ public class Keyboard implements KeyListener {
 	}
 	
 	
+	public boolean isUtiliser() {
+		return utiliser;
+	}
+
+
+	public void setUtiliser(boolean use) {
+		this.utiliser = use;
+	}
+
+
+	public boolean isInventaire1() {
+		return inventaire1;
+	}
+
+
+	public void setInventaire1(boolean inventaire1) {
+		this.inventaire1 = inventaire1;
+	}
+
+
+	public boolean isInventaire2() {
+		return inventaire2;
+	}
+
+
+	public void setInventaire2(boolean inventaire2) {
+		this.inventaire2 = inventaire2;
+	}
+
+
+	public boolean isInventaire3() {
+		return inventaire3;
+	}
+
+
+	public void setInventaire3(boolean inventaire3) {
+		this.inventaire3 = inventaire3;
+	}
+
+
+	public boolean isInventaire() {
+		return inventaire;
+	}
+
+
+	public void setInventaire(boolean inventaire) {
+		this.inventaire = inventaire;
+	}
+
+
 	public boolean isSpace() {
 		return space;
 	}
@@ -62,6 +128,12 @@ public class Keyboard implements KeyListener {
 				touche[KeyEvent.VK_SPACE] = false;
 			}else if(touche[KeyEvent.VK_SPACE] == false) {
 				touche[KeyEvent.VK_SPACE] = true;
+			}
+		}else 	if(e.getKeyCode() == KeyEvent.VK_I) {
+			if(touche[KeyEvent.VK_I] == true) {
+				touche[KeyEvent.VK_I] = false;
+			}else if(touche[KeyEvent.VK_I] == false) {
+				touche[KeyEvent.VK_I] = true;
 			}
 		}else {
 			touche[e.getKeyCode()] = true;
@@ -91,7 +163,7 @@ public class Keyboard implements KeyListener {
 		
 		// 1 ER PARTIE DU IF GERE LA TOUCHE ESPACE
 		
-		if(e.getKeyCode() == KeyEvent.VK_SPACE) {
+		if(e.getKeyCode() == KeyEvent.VK_SPACE || e.getKeyCode() == KeyEvent.VK_I) {
 			
 		}else {
 			touche[e.getKeyCode()] = false;

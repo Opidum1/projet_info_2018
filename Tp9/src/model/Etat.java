@@ -4,8 +4,8 @@ import java.awt.Graphics;
 
 public abstract class Etat {
 	
-	private Game game;
-	private static Etat etat_actuel = null;
+	protected Game game;
+	protected static Etat etat_actuel = null;
 	
 	
 	public Etat(Game game) {
@@ -32,6 +32,11 @@ public abstract class Etat {
 	public GestionObjets getItems_list() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public Player getPlayer() {
+		return null;
+		
 	}
 
 }

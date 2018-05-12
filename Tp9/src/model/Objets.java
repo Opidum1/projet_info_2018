@@ -1,7 +1,9 @@
 package model;
 
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
 
 public abstract class Objets implements GameObject {
 
@@ -14,21 +16,21 @@ public abstract class Objets implements GameObject {
 	 
 	// STATS RELATIVES A CHAQUE OBJET
 	 
-	 protected boolean existant = true;
+	 protected boolean existant = true;  // PERMET DE SAVOIR SI L'OBJET EST RAMMASE OU NON
 	 protected float posX,posY;
 	 protected int nombre;
 	 
 	 
 	 protected Rectangle ramassageRec;
 	 
-	
+	protected int type;
 	 
 	 public Objets(Game game, float posX, float posY) {
 		 this.game = game;
 		 this.posX = posX;
 		 this.posY = posY;
 	
-		 ramassageRec = new Rectangle(0,0,LARGEUR_OBJET,HAUTEUR_OBJET);
+		 ramassageRec = new Rectangle(0,0,LARGEUR_OBJET,HAUTEUR_OBJET);  // CREE UN RECTANGLE DE RAMASSAGE POUR CHAQUE OBJET
 	 }
 	 
 	 
@@ -61,6 +63,9 @@ public abstract class Objets implements GameObject {
 		this.posY = posY;
 	}
 
+	
+
+
 
 	@Override
 	public abstract void update();
@@ -71,7 +76,16 @@ public abstract class Objets implements GameObject {
 
 
 	@Override
-	public abstract Rectangle getCollisionRec(Objets c);
+	public abstract Rectangle getCollisionRec(GameObject c,float decalage_x,float decalage_y);
+
+
+	public abstract void use();
+	
+	public abstract BufferedImage getIm_item();
+
+
+
+
 	
 
 }

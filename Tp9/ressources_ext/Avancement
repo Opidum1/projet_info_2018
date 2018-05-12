@@ -10,11 +10,13 @@ Dernière élément codé :
 	
 	- Objets drop
 
+	- Inventaires(list + view)
+
 élément en cours de codage :
 
 	- ordre d'affichage des différents éléments 
 
-	- Inventaires(list + view)
+	- !!!!!! mort dans la classe ENEMY
 
 	
 
@@ -22,3 +24,8 @@ REMARQUES :
 
 	- trouvé un moyen d'afficher l'arme plus longtemps
 	- génération propre de la map
+	
+	
+	
+	
+	

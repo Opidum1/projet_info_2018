@@ -29,6 +29,9 @@ public class Etat_jeu extends Etat {
 		
 		items_list.notifyView(g);
 		pnjList.notifyView(g);
+		if(!player.vivant) {
+			g.drawString("GAME OVER", 200, 200);
+		}
 	}
 
 
@@ -36,6 +39,7 @@ public class Etat_jeu extends Etat {
 	public void update() {
 		pnjList.update();
 		items_list.update();
+		
 	}
 
 

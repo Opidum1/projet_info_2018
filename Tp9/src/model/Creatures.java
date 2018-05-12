@@ -35,7 +35,8 @@ public abstract class Creatures implements GameObject {
 	
 	protected boolean vivant = true;
 	
-
+	protected boolean isProjectile = false;
+	
 	// GESTION DU DEPLACEMENT
 	
 	
@@ -136,6 +137,13 @@ public abstract class Creatures implements GameObject {
 	}
 	
 	// Collision avec l'environnment en cours de codage
+	
+	public void drawLife(Graphics g) {
+		for(int i =0; i < hp;i++) {
+			g.drawImage(Sheets.heart,(int)(posX - game.getCamera().getDecalage_x()) + 10*i,(int)(posY - game.getCamera().getDecalage_y() - 10),10,10,null);
+		}
+	}
+	
 	
 	
 	

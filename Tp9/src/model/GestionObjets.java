@@ -7,7 +7,6 @@ public class GestionObjets {
 
 	
 	private ArrayList<Objets> items_list = new ArrayList<Objets>();
-	private bois wood;
 	private Player player;
 	
 	// INVENTAIRE
@@ -17,7 +16,7 @@ public class GestionObjets {
 	
 	public GestionObjets(Player player) {
 		this.player = player;
-
+		
 	}
 
 	
@@ -29,9 +28,13 @@ public class GestionObjets {
 	
 	
 	public void update() {
+		
+		
 		for(int i =0; i < items_list.size();i++) {
 			Objets o = items_list.get(i);
-			
+			if(o == null) {
+				return;
+			}
 			if(!o.existant) {
 				items_list.remove(o);
 		}}
@@ -40,23 +43,13 @@ public class GestionObjets {
 	public void notifyView(Graphics g) {
 		for(int i =0; i < items_list.size();i++) {
 			Objets o = items_list.get(i);
+			if(o == null) {
+				return;
+			}
 			o.notifyView(g);
 			
 		}
 	}
-
-
-
-	public bois getBois() {
-		return wood;
-	}
-
-
-
-	public void setBois(bois bois) {
-		this.wood = bois;
-	}
-
 
 
 	public ArrayList<Objets> getItems_list() {

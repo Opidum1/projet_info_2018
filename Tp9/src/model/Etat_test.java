@@ -7,7 +7,7 @@ public class Etat_test extends Etat {
 
 	public Etat_test(Game game) {
 		super(game);
-		// TODO Auto-generated constructor stub
+		this.game = game;
 	}
 
 	@Override
@@ -18,8 +18,8 @@ public class Etat_test extends Etat {
 
 	@Override
 	public void notifyView(Graphics g) {
-		g.setColor(Color.BLACK);
-		g.fillRect(0, 0, 400, 400);
+		game.getInGame().notifyView(g);
+		g.drawString("PAUSE",(int)(game.getLargeur())/2,(int)(game.getHauteur())/2);
 		
 	}
 
